@@ -8,7 +8,7 @@
 static void timer(uint32_t minutes, uint32_t sec)
 {
 	// do checks
-	if (sec < 0 || sec > 59) {
+	if (minutes > 59 || sec > 59) {
 		printf("Excess value: %d !!\n", sec);
 		return;
 	} else if (minutes > 0 && sec == 0) {
