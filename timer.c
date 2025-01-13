@@ -11,9 +11,15 @@ static void timer(uint32_t minutes, uint32_t sec)
 	if (sec < 0 || sec > 59) {
 		printf("Excess value: %d !!\n", sec);
 		return;
+	} else if (minutes > 0 && sec == 0) {
+		minutes--;
+		sec += 59;
+	} else if (minutes < 1 || sec < 1) {
+		printf("Too less value!\n");
+		return;
 	}
 	
-	// do time loop
+	// do loop
 	for (;; sec--) {
 		sleep(1); // sleep for 1sec
 #ifdef __linux__
@@ -40,6 +46,6 @@ static void timer(uint32_t minutes, uint32_t sec)
 // call timer func
 int main(void)
 {
-	timer(2, 59);
+	timer(3, 0);
 	return 1;
 }
