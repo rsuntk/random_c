@@ -38,7 +38,7 @@ static void timer(uint32_t minutes, uint32_t sec)
 			minutes--;
 		} else if (sec == 0 && minutes < 1) {
 			printf("Timer ended!\n");
-			return;
+			break;
 		}
 	}
 }
