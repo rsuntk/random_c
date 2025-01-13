@@ -14,7 +14,7 @@ static void timer(uint32_t minutes, uint32_t sec)
 	} else if (minutes > 0 && sec == 0) {
 		minutes--;
 		sec += 59;
-	} else if (minutes < 1 || sec < 1) {
+	} else if ((minutes < 1 || sec < 1) || (minutes < 1 && sec < 1)) {
 		printf("Too less value!\n");
 		return;
 	}
